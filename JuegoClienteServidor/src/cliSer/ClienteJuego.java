@@ -43,12 +43,6 @@ public class ClienteJuego extends Thread {
 		ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
 		Mapa m = (Mapa) ois.readObject();
 		while(m.getEstado().equals("")) {
-			Scanner teclado = new Scanner(System.in); 
-	        System.out.println("dime una direccion");
-	        String nombre = teclado.nextLine();
-			m.jugada(nombre);
-			ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
-			oos.writeObject(m);
 		}
 	}
 	

@@ -152,15 +152,5 @@ public class Mapa implements Serializable{
 		tableroGrafico[jugador.getCorY()][jugador.getCorX()] = UNIDAD_JUGADOR;
 	}
 	
-	public static void main(String[] args) {
-		Mapa m = new Mapa();
-		m.mostrarTablero();
-		while (true) {
-			Scanner teclado = new Scanner(System.in); 
-	        System.out.println("dime un nombre");
-	        String nombre = teclado.nextLine();
-			m.jugada(nombre);
-		}
-	}
 	
 }
