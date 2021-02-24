@@ -27,24 +27,21 @@ public class ServidorJuego {
 	}
 
 	private void escuchar(){
-	try {
-		Socket sockCli = sockServ.accept();
-		while(true) {
-			ObjectOutputStream zos = new ObjectOutputStream(sockCli.getOutputStream());
-			zos.writeObject(mapa);
-			System.out.println("envia");
-			ObjectInputStream os = new ObjectInputStream(sockCli.getInputStream());
-			mapa = (Mapa) os.readObject();
-			System.out.println("recive");
-
+		try {
+			Socket sockCli = sockServ.accept();
+			while(true) {
+				ObjectOutputStream zos = new ObjectOutputStream(sockCli.getOutputStream());
+				zos.writeObject(mapa);
+				ObjectInputStream os = new ObjectInputStream(sockCli.getInputStream());
+				mapa = (Mapa) os.readObject();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-	} catch (IOException e) {
-		e.printStackTrace();
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
 	}
-}
-	
+		
 public static void main(String[] args) throws IOException {
 	ServidorJuego s = new ServidorJuego("127.0.0.1", 6000);
 	s.escuchar();

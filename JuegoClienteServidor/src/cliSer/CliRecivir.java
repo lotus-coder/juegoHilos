@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
+
 import beans.Mapa;
 
 public class CliRecivir extends Thread{
@@ -39,8 +40,6 @@ public class CliRecivir extends Thread{
 			}
 		}
 	}
-	
-	
 	
 	
 	

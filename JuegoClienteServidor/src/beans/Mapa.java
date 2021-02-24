@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Mapa implements Serializable{
@@ -15,10 +16,12 @@ public class Mapa implements Serializable{
 	private String  estado;
 	private String [][]tableroGrafico;
 	private int [][]tableroPosicion;
+	private HashMap<int [], String> nn;
 	private int []posicionBase,posicionJugador,posicionAlhaja;
 	private Personaje jugador;
 	private boolean tieneAlhaja;
 	private int descubiertas,totalMovimientos;
+	
 	
 	public Mapa() {
 		tableroGrafico = new String [10][10];
@@ -123,7 +126,12 @@ public class Mapa implements Serializable{
 	public void jugada(String direccion) {
 		String d =direccion.toUpperCase();
 		totalMovimientos++;
-		if(tableroGrafico[jugador.getCorY()][jugador.getCorX()].equals(UNIDAD)) descubiertas++;
+		if(tableroGrafico[jugador.getCorY()][jugador.getCorX()].equals(UNIDAD)) { 
+			descubiertas++;
+		}
+//		arr [y][x] == ""
+//				arr [y][x] = generarLocalizacion
+//						descubiertas++
 		tableroGrafico[jugador.getCorY()][jugador.getCorX()] = UNIDAD_DESCUBIERTA;
 		if(d.equals("E")) {
 			jugador.setCorX(jugador.getCorX()-1);
@@ -144,6 +152,7 @@ public class Mapa implements Serializable{
 			System.out.println("Has perdido");
 			estado = "F";
 		}
+		//if de que3 ha ganado
 	}
 	   
 	private void actualzarTablero() {
