@@ -38,7 +38,6 @@ public class ServidorJuego {
 			System.out.println("recive");
 
 		}
-
 	} catch (IOException e) {
 		e.printStackTrace();
 	} catch (ClassNotFoundException e) {
