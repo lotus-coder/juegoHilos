@@ -18,15 +18,12 @@ public class CliEnviar extends Thread{
 	
 	@Override
 	public void run() {
-		while(mapa.getEstado().equals("")) {
 			try {
-				yield();
-			ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
+				ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
 				oos.writeObject(mapa);
-			} catch (IOException e) {
+			} catch (IOException e ) {
 				e.printStackTrace();
 			}
-		}
 	}
 	
 	

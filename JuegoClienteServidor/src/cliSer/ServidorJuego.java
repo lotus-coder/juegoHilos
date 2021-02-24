@@ -1,5 +1,6 @@
 package cliSer;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -27,17 +28,15 @@ public class ServidorJuego {
 
 	private void escuchar(){
 	try {
+		Socket sockCli = sockServ.accept();
 		while(true) {
-			Socket sockCli = sockServ.accept();
-
-			ByteArrayOutputStream zbs = new ByteArrayOutputStream();
-			ObjectOutputStream zos = new ObjectOutputStream(zbs);
+			ObjectOutputStream zos = new ObjectOutputStream(sockCli.getOutputStream());
 			zos.writeObject(mapa);
-			
-			System.out.println("Servidor recibe");
-
+			System.out.println("envia");
 			ObjectInputStream os = new ObjectInputStream(sockCli.getInputStream());
 			mapa = (Mapa) os.readObject();
+			System.out.println("recive");
+
 		}
 
 	} catch (IOException e) {

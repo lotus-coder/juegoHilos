@@ -120,7 +120,7 @@ public class Mapa implements Serializable{
         return numero;
     }
 	   
-	public synchronized void jugada(String direccion) {
+	public void jugada(String direccion) {
 		String d =direccion.toUpperCase();
 		totalMovimientos++;
 		if(tableroGrafico[jugador.getCorY()][jugador.getCorX()].equals(UNIDAD)) descubiertas++;

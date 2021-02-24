@@ -1,6 +1,8 @@
 package beans;
 
-public class Personaje {
+import java.io.Serializable;
+
+public class Personaje implements Serializable{
    private int corX,corY,vida,cordura;
    
    private String localizacion;
